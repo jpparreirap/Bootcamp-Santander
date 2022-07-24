@@ -1,0 +1,26 @@
+<h1 [class.text-red]="textRed" [style.fontSize]="fontSize">{{ retornaNome() }}</h1>
+
+<img [src]="imgURL" [alt]="imgDesc" [style.width.px]="widthImg">
+
+<button 
+    [attr.aria-label]="buttonText" 
+    (click)="clicou()"
+    [style.backgroundColor]="bgColor"
+>{{buttonText}}</button>
+
+<input type="text" #input (keyup)="keyboardWatcher(input.value)">
+
+{{ input.value }}
+
+<input type="text" class="form-control" [(ngModel)]="textInput">
+<p class="text-default">{{ textInput }}</p>
+
+<app-button 
+    btnText="cancelar" 
+    [btnType]="'btn-danger'" 
+    (clickChildren)="clicouNoFilho($event)"
+    (click)="incrementa()"
+    (click)="destroiComponente()"
+></app-button>
+
+<app-life-cycle [number]="number" *ngIf="!destroy"></app-life-cycle>
